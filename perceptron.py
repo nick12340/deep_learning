@@ -23,7 +23,7 @@ class Perceptron(object):
     def predict(self, input_vec):
         '''
         输入向量，输出感知器的计算结果
-        '''T
+        '''
         # 把input_vec[x1,x2,x3...]和weights[w1,w2,w3,...]打包在一起
         # 变成[(x1,w1),(x2,w2),(x3,w3),...]
         # 然后利用map函数计算[x1*w1, x2*w2, x3*w3]
