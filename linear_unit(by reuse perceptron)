@@ -1,10 +1,11 @@
-from perceptron import perceptron
+from perceptron import Perceptron
 
-f = lambda x:x
+def f(x):
+    return x
 
-class linearunit(perceptron):
+class linear_unit(Perceptron):
     def __init__(self,input_num):
-        perceptron.__init__(self,input_num,f)
+        Perceptron.__init__(self,input_num,f)
 
 def get_train_data():
     input_vecs = [[5],[3],[8],[1.4],[10.1]]
@@ -12,15 +13,15 @@ def get_train_data():
     return input_vecs,labels
 
 def train_linear():
-    idiot = linearunit(1)
+    model = linear_unit(1)
     input_vecs,labels = get_train_data()
-    idiot.train(input_vecs,labels,10,0.01)
-    return idiot
+    model.train(input_vecs,labels,10,0.01)
+    return model
+
 
 if __name__ == '__main__':
-    idiot = train_linear()
-    print idiot
-    print 'Work 3.4 years, monthly salary = %.2f' % idiot.predict([3.4])
-    print 'Work 15 years, monthly salary = %.2f' % idiot.predict([15])
-    print 'Work 1.5 years, monthly salary = %.2f' % idiot.predict([1.5])
-    print 'Work 6.3 years, monthly salary = %.2f' % idiot.predict([6.3])
+    model = train_linear()
+    print (model)
+    print ('Work 15 years, monthly salary = %.2f' % model.predict([15]))
+    print ('Work 1.5 years, monthly salary = %.2f' % model.predict([1.5]))
+    print ('Work 6.3 years, monthly salary = %.2f' % model.predict([6.3]))
